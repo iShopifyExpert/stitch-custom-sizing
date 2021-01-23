@@ -1,0 +1,54 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".custom_size_option_addon .custom-size-diagram-input input").keyup(function(){
+      var input_size = $(this).attr('data-name');
+      var s_size = "span[data-size-name="+input_size+"]";
+      $(s_size).html($(this).val());
+    });
+
+    function checkvariants1() {
+      var radio1 = $('.variant-wrapper--button.opt-type .variant-input input[type=radio]:checked');
+      if (radio1.val() == 'Stitched') {
+        $('.variant-wrapper--button.opt-size .variant-input input[type=radio]').prop('checked', false);
+        $('.variant-wrapper--button.opt-size .variant-input[data-value="XS"] input[type=radio]').prop("checked", true);
+        $('.variant-wrapper--button.opt-size').slideDown(500);
+        $('.variant-wrapper--button.opt-style .variant-input input[type=radio]').prop('checked', false);
+        $('.variant-wrapper--button.opt-style .variant-input[data-value="Gown"] input[type=radio]').prop("checked", true);
+        $('.variant-wrapper--button.opt-style').slideDown(500);
+      } else {
+        $('.variant-wrapper--button.opt-size .variant-input input[type=radio]').prop('checked', false);
+        $('.variant-wrapper--button.opt-size .variant-input[data-value="Free Size"] input[type=radio]').prop("checked", true);
+        $('.variant-wrapper--button.opt-size').slideUp(500);
+        $('.variant-wrapper--button.opt-style .variant-input input[type=radio]').prop('checked', false);
+        $('.variant-wrapper--button.opt-style .variant-input[data-value="None"] input[type=radio]').prop("checked", true);
+        $('.variant-wrapper--button.opt-style').slideUp(500);
+        $('.custom-size-diagram-input input, .custom-size-diagram-input textarea').val('');
+        $('.custom-size-diagram-input input[type=radio]').prop('checked', false);
+        $('.cstm-size-diagram-container').slideUp(500);
+      }
+    }
+    function checkvariants2() {
+      var radio2 = $('.variant-wrapper--button.opt-size .variant-input input[type=radio]:checked');
+      if (radio2.val() == 'Custom Size') {
+        $('.cstm-size-diagram-container').slideDown(500);
+      } else {
+        $('.custom-size-diagram-input input, .custom-size-diagram-input textarea').val('');
+        $('.custom-size-diagram-input input[type=radio]').prop('checked', false);
+        $('.cstm-size-diagram-container').slideUp(500);
+      }
+    }
+    $('.variant-wrapper--button.opt-size .variant-input[data-value="Free Size"]').hide();
+    $('.variant-wrapper--button.opt-style .variant-input[data-value="None"]').hide();
+    $('.variant-wrapper--button.opt-size').hide();
+    $('.variant-wrapper--button.opt-style').hide();
+    checkvariants1();
+    checkvariants2();
+    $('.variant-wrapper--button.opt-type .variant-input').click(function(e) {
+      checkvariants1();
+    });
+    $('.variant-wrapper--button.opt-size .variant-input').click(function(e) {
+      checkvariants2();
+    });
+  });
+</script>
