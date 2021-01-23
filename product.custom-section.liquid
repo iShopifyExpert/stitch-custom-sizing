@@ -1,29 +1,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('.cst-policy-sz.size-in label').click(function(e) {
+    function addmesurment() {
       var value2 = $('.cst-policy-sz.size-in input[type=radio]:checked');
       $('.custom_size_option_addon .custom-size-diagram-input input[type=text]').each(function() {
         if (value2.val() == 'cm') {
           $(this).val( function( index, val ) {
-            return val.replace('cm','').replace('inch','').replace('  ',' ') + 'inch';
+            return (val.replace('cm','').replace('inch','').replace('  ',' ') + ' inch').replace('  ',' ');
           });
         } else if (value2.val() == 'inch') {
           $(this).val( function( index, val ) {
-            return val.replace('inch','').replace('cm','').replace('  ',' ') + 'cm';
+            return (val.replace('inch','').replace('cm','').replace('  ',' ') + ' cm').replace('  ',' ');
           });
         } else {
-          
+
         }
       });
-    });
-    
-    $('.custom_size_option_addon .custom-size-diagram-input input').keyup(function(){
-      var input_size = $(this).attr('data-name');
-      var s_size = "span[data-size-name="+input_size+"]";
-      $(s_size).html($(this).val());
-    });
-
+    }
     function checkvariants2() {
       var radio2 = $('.variant-wrapper--button.opt-size .variant-input input[type=radio]:checked');
       if (radio2.val() == 'Custom Size') {
@@ -34,7 +27,17 @@
         $('.cstm-size-diagram-container').slideUp(500);
       }
     }
+    $('.custom_size_option_addon .custom-size-diagram-input input').keyup(function(){
+      var input_size = $(this).attr('data-name');
+      var s_size = "span[data-size-name="+input_size+"]";
+      $(s_size).html($(this).val().replace('cm','').replace('inch',''));
+      addmesurment()
+    });
+
     checkvariants2();
+    $('.cst-policy-sz.size-in label').click(function(e) {
+      addmesurment();
+    });
     $('.variant-wrapper--button.opt-size .variant-input').click(function(e) {
       checkvariants2();
     });
