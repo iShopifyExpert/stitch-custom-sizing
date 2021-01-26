@@ -1,0 +1,268 @@
+<div class="cstm-size-diagram-container" style="display:none;">
+  <div class="custom_size_option_addon">
+
+    <div class="cst-main">
+      <label>Choose size in:</label>
+      <ul class="cst-policy-sz size-in">
+        <li>
+          <input type="radio" name="size-in" class="inner-size-input" id="size-cm" value="cm" checked>
+          <label for="size-cm">cm</label>
+        </li>
+        <li>
+          <input type="radio" name="size-in" class="inner-size-input" id="size-inch" value="inch">
+          <label for="size-inch">inch</label>
+        </li>
+      </ul>
+
+      <label>Choose your nearest size:</label>
+      <ul class="cst-policy-sz">
+        <li>
+          <input type="radio" name="properties[custom-stitch-size]" class="inner-size-input" id="xs" value="xs">
+          <label for="xs">XS</label>
+        </li>
+        <li>
+          <input type="radio" name="properties[custom-stitch-size]" class="inner-size-input" id="s" value="s">
+          <label for="s">S</label>
+        </li>
+        <li>
+          <input type="radio" name="properties[custom-stitch-size]" class="inner-size-input" id="m" value="m">
+          <label for="m">M</label>
+        </li>
+        <li>
+          <input type="radio" name="properties[custom-stitch-size]" class="inner-size-input" id="l" value="l">
+          <label for="l">L</label>
+        </li>
+        <li>
+          <input type="radio" name="properties[custom-stitch-size]" class="inner-size-input" id="xl" value="xl">
+          <label for="xl">XL</label>
+        </li>
+      </ul>
+    </div>
+    <div class="custom-size-diagram-wrap">
+      <div class="custom-size-diagram-top">
+        <div class="custom-size-diagram-img">
+          <img src="{{'gown.jpeg' | asset_url}}">
+          <span data-size-name="neck"></span>
+          <span data-size-name="hole"></span>
+          <span data-size-name="waist"></span>
+          <span data-size-name="shirt_hip"></span>
+          <span data-size-name="chest"></span>
+          <span data-size-name="arm_hole"></span>
+          <span data-size-name="sleeves_lining"></span>
+          <span data-size-name="sleeve_length"></span>
+          <span data-size-name="wrist"></span>
+          <span data-size-name="length"></span>
+        </div>
+        <div class="custom-size-diagram-input">
+          <label for="neck" class="inpu-label">Neck Depth</label>
+          <input data-name="neck" type="text" value="" data-mesurment="cm">
+          <input data-id="neck" type="hidden" value="" name="properties[neck_depth]">
+          
+          <label for="hole" class="inpu-label">Arm Hole</label>
+          <input data-name="hole" type="text" value="" data-mesurment="cm">
+          <input data-id="hole" type="hidden" value="" name="properties[arm_hole]">
+          
+          <label for="sleeve_length" class="inpu-label">Sleeve Length</label>
+          <input data-name="sleeve_length" type="text" data-mesurment="cm" value="">
+          <input data-id="sleeve_length" type="hidden" value="" name="properties[sleeve_length]">
+          
+          <label for="chest" class="inpu-label">Chest</label>
+          <input data-name="chest" type="text" value="" data-mesurment="cm">
+          <input data-id="chest" type="hidden" value="" name="properties[shirt_chest]">
+          
+          <label for="waist" class="inpu-label">Waist</label>
+          <input data-name="waist" type="text" value="" data-mesurment="cm">
+          <input data-id="waist" type="hidden" value="" name="properties[shirt_waist]">
+          
+          <label for="shirt_hip" class="inpu-label">Hip</label>
+          <input data-name="shirt_hip" type="text" value="" data-mesurment="cm">
+          <input data-id="shirt_hip" type="hidden" value="" name="properties[shirt_hip]">
+          
+          <label for="length" class="inpu-label">Length</label>
+          <input data-name="length" type="text" value="" data-mesurment="cm">
+          <input data-id="length" type="hidden" value="" name="properties[shirt_Length]">
+          
+          <label for="comment" class="inpu-label">Special Instructions</label>
+          <textarea data-name="comment" name="properties[note]" cols="50" rows="5" placeholder="Enter Note" maxlength="200"></textarea>
+        </div>
+      </div>
+      <h4>NOTE</h4>
+      <ul class="cst-policy">
+        <li>Please provide your final stitching measurements below (not body measurements).</li>
+        <li>You can provide the measurements that require alterations as rest of the measurements will be chosen from your nearest size.</li>
+        <li>Changes in custom stitched orders can only be made within 3 days of order placement and will require a confirmation from our end.</li>
+      </ul>
+    </div>
+  </div>
+  <style>
+    label.inpu-label {
+    margin-bottom: 0px;
+    font-size: 13px;
+}
+    .custom_size_option_addon {
+      padding: 15px 0;
+      border-bottom: 1px solid #ebebeb;
+      display: inline-block;
+      width: 100%;
+    }
+    .custom_size_option_addon ul {
+      margin: 15px 18px;
+    }
+    .custom_size_option_addon h1 {
+      text-align:center;
+      margin-bottom: 25px;
+    }
+    .custom_size_option_addon .custom-size-diagram-top, .custom_size_option_addon .custom-size-diagram-bottom {
+      overflow: hidden
+    }
+    .custom_size_option_addon .custom-size-diagram-top {
+      margin-bottom: 15px;
+    }
+    .custom_size_option_addon .custom-size-diagram-top .custom-size-diagram-img, .custom_size_option_addon .custom-size-diagram-bottom .custom-size-diagram-img {
+      position: relative;
+      width: 50%;
+      float: left;
+    }
+    .custom_size_option_addon .custom-size-diagram-input, .custom_size_option_addon .custom-size-diagram-bottom .custom-size-diagram-input {
+      padding-left: 10px;
+      width: 50%;
+      float: left;
+    }
+    
+    .custom_size_option_addon .custom-size-diagram-top .custom-size-diagram-img img, .custom_size_option_addon .custom-size-diagram-bottom .custom-size-diagram-img img {
+      width: 100%;
+      height: auto;
+    }
+    .custom_size_option_addon .custom-size-diagram-top .custom-size-diagram-input input, .custom_size_option_addon .custom-size-diagram-bottom .custom-size-diagram-input input, .custom_size_option_addon .custom-size-diagram-top .custom-size-diagram-input textarea, .custom_size_option_addon .custom-size-diagram-bottom .custom-size-diagram-input textarea {
+      width: 100%;
+      display: block;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .custom_size_option_addon .custom-size-diagram-top .custom-size-diagram-input input:focus, .custom_size_option_addon .custom-size-diagram-bottom .custom-size-diagram-input input:focus {
+      border-color: #000;
+    }
+    .custom_size_option_addon .custom-size-diagram-top .custom-size-diagram-img span, .custom_size_option_addon .custom-size-diagram-bottom .custom-size-diagram-img span{
+      font-size:13px;
+      color: #000;
+      font-weight: 600;
+      position: absolute;
+
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="hole"] {
+    top: 10%;
+    left: 30%;
+}
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="neck"]{
+      top: 13%;
+      right: 35%;
+
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="shoulder"] {
+      top: -1px;
+      left: 54%;
+
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="shirt_length"] {
+      right: 9%;
+      top: 44%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="sleeve_length"] {
+    left: 20%;
+    top: 18%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="wrist"] {
+      left: 10%;
+      top: 32%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="chest"] {
+    top: 19%;
+    left: 57%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="waist"] {
+      top: 26%;
+      left: 54%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="shirt_hip"] {
+left: 48%;
+    top: 36%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="shirt_bottom"] {
+      bottom: 6%;
+      left: 57%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="arm_hole"] {
+      right: 31%;
+      top: 10%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="sleeves_lining"] {
+      right: 14%;
+      top: 24%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="length"] {
+    top: 46%;
+    right: 8%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="trouser_waist"] {
+      top: 7%;
+      left: 50%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="trouser_waist"] {
+      top: 7%;
+      left: 50%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="hip"] {
+      left: 50%;
+      top: 15%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="thigh"] {
+      top: 33%;
+      right: 28%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="knee_length"] {
+      right: 9%;
+      top: 30%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="knee"] {
+      top: 52%;
+      right: 28%;
+    }
+    .custom_size_option_addon .custom-size-diagram-img span[data-size-name="bottom"] {
+      bottom: 7%;
+      right: 28%;
+    }
+    .cst-main .cst-policy-sz .inner-size-input {
+      display: none;
+    }
+    .cst-main .cst-policy-sz label {
+      font-size: 16px;
+      position: relative;
+      display: inline-block;
+      font-weight: 400;
+      padding: 7px 15px 7px;
+      margin: 0 8px 12px 0;
+      background-color: #ffffff;
+      box-shadow: 0 0 0 1px #e8e8e1;
+    }
+    .cst-main .cst-policy-sz .inner-size-input[type="radio"]:checked ~ label {
+      background-color: #000;
+      color: #fff;
+    }
+    .cst-main .cst-policy-sz {
+      list-style: none;
+      margin: 10px 0;
+    }
+    .cst-main .cst-policy-sz li {
+      display: inline-block;
+    }
+    .custom-size-diagram-img{
+     width: 65%;
+    }
+    .custom-size-diagram-input{
+      width: 35%;   
+    }
+  </style>
+</div>
