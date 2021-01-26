@@ -1,0 +1,43 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    function checkvariants2() {
+      var radio2 = $('.variant-wrapper--button.opt-size .variant-input input[type=radio]:checked');
+      if (radio2.val() == 'Custom Size') {
+        $('.cstm-size-diagram-container').slideDown(500);
+      } else {
+        $('.custom-size-diagram-input input, .custom-size-diagram-input textarea').val('');
+        $('.custom-size-diagram-input input[type=radio]').prop('checked', false);
+        $('.cstm-size-diagram-container').slideUp(500);
+      }
+    }
+    $('.custom_size_option_addon .custom-size-diagram-input input[type=text]').on('change paste keyup input', function() {
+      var input_size = $(this).attr('data-name');
+      var s_size = "span[data-size-name="+input_size+"]";
+      var inputval = $(this).val();
+      var inputname = $(this).attr('data-name');
+      var mesurment = $(this).attr('data-mesurment');
+      $(s_size).html($(this).val());
+      if (inputval !== '') {
+        $(this).next('input[type=hidden]').val(inputval+' '+mesurment);
+      }
+    });
+
+    checkvariants2();
+    $(document).on('click', '.cst-policy-sz.size-in li',function() {
+      var value2 = $('.cst-policy-sz.size-in input[type=radio]:checked');
+      $('.custom_size_option_addon .custom-size-diagram-input input[type=text]').attr('data-mesurment', value2.val());
+      $('.custom_size_option_addon .custom-size-diagram-input input[type=text]').each(function() { 
+        var inputval = $(this).val();
+        var inputname = $(this).attr('data-name');
+        var mesurment = $(this).attr('data-mesurment');
+        if (inputval !== '') {
+          $(this).next('input[type=hidden]').val(inputval+' '+mesurment);
+        }
+      });
+    });
+    $('.variant-wrapper--button.opt-size .variant-input').click(function(e) {
+      checkvariants2();
+    });
+  });
+</script>
